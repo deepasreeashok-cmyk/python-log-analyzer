@@ -57,8 +57,5 @@ The analyzer generates a security report containing:
 This project uses simulated authentication logs for educational purposes. Repeated failed login attempts are indicators requiring investigation and do not independently confirm malicious activity.
 
 ## Author
-deepasree
-bca cybersecurity
-
 Deepa Sree  
 BCA Cybersecurity | Class of 2027
