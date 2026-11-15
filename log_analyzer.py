@@ -1,19 +1,16 @@
 
-logs = [
-    "Failed login for user admin from 192.168.1.10",
-    "Successful login for user deepa from 192.168.1.15",
-    "Failed login for user root from 192.168.1.20",
-    "Failed login for user admin from 192.168.1.10",
-    "Successful login for user admin from 192.168.1.10",
-    "Failed login for user test from 192.168.1.25"
-]
+# Read authentication logs
+with open("auth.log", "r") as file:
+    logs = file.readlines()
 
+# Identify failed login attempts
 failed_logins = []
 
 for log in logs:
     if "Failed login" in log:
-        failed_logins.append(log)
+        failed_logins.append(log.strip())
 
+# Count failed attempts by IP
 ip_counts = {}
 
 for log in failed_logins:
@@ -24,6 +21,7 @@ for log in failed_logins:
     else:
         ip_counts[ip] = 1
 
+# Generate security report
 report = f"""
 ========== SECURITY ANALYSIS REPORT ==========
 
@@ -49,4 +47,4 @@ print(report)
 with open("security_report.txt", "w") as file:
     file.write(report)
 
-print("\nReport saved successfully!")
+print("\nSecurity report saved successfully!")
